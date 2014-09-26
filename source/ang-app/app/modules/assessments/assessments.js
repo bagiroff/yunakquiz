@@ -52,6 +52,7 @@ $scope.passAssessment = function(){
 
 }])
 .controller('AssessmentsResultCtrl', ['$scope', '$routeParams', '$location', function($scope, $routeParams, $location) {
+
 	$scope.getAssessmentResult = function(){ 
 	var assessmentResult = {
 	id: 1, 
@@ -70,7 +71,13 @@ $scope.passAssessment = function(){
 		]
 	};
 	return assessmentResult;
-};
+	};
+	
+
 	$scope.assessmentResult = $scope.getAssessmentResult();
+	$scope.redirectToAssessment = function(){
+		$location.path('/assessments/'+$routeParams.assessment_id);	
+};
+	
 
 }]);

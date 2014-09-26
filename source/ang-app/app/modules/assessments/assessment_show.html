@@ -1,5 +1,22 @@
-<h1>Assessment in action</h1>
-<p>This is the partial for Assessment page</p>
+<h1 ng-bind="assessment.name"></h1>
+
+<a href=""> Category </a>
+
+<a href=""> SubCategory </a>
+
+<ul>
+	<li ng-repeat="question in assessment.questions"> 
+		<p>{{question.title}}</p>
+		<p>{{question.description}}</p>
+
+		<ul >
+			<li ng-repeat="answer in question.answers" ng-click="checkAnswer(answer)" ng-class="{'bg-success': answer.checked}"> {{answer.title}}</li>
+		</ul>
+	</li>
+</ul>
+
+<button ng-click="passAssessment()">Pass assessment</button> 
+
 <p>
   Showing of 'interpolate' filter:
   {{ 'Current version is v%VERSION%.' | interpolate }}

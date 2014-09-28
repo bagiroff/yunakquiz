@@ -4,16 +4,17 @@
 
 <a href=""> SubCategory </a>
 
-<ul>
+<p ng-bind="assessment.description"></p>
+<ol class="assessmentQuestions">
 	<li ng-repeat="question in assessment.questions"> 
 		<p>{{question.title}}</p>
-		<p>{{question.description}}</p>
+		
 
-		<ul >
-			<li ng-repeat="answer in question.answers" ng-click="checkAnswer(answer)" ng-class="{'bg-success': answer.checked}"> {{answer.title}}</li>
+		<ul class="assessmentAnswers">
+			<li ng-repeat="answer in question.answers" ng-click="checkAnswer(answer)" ng-class="{'assessmentAnswerChecked':answer.checked}"> {{answer.title}}</li>
 		</ul>
 	</li>
-</ul>
+</ol>
 
 <button ng-click="passAssessment()">Pass assessment</button> 
 
